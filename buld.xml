@@ -1,0 +1,18 @@
+<project name="GenerateJavadoc" default="generate-javadoc" basedir=".">
+    <!-- Визначення шляхів -->
+    <property name="src.dir" value="mkr" />
+    <property name="output.dir" value="src/javaDoc" />
+
+    <!-- Ціль для створення Javadoc -->
+    <target name="generate-javadoc" description="Створення Javadoc">
+        <!-- Перевірка та створення вихідної папки -->
+        <mkdir dir="${output.dir}" />
+
+        <!-- Генерація Javadoc -->
+        <javadoc sourcepath="${src.dir}" destdir="${output.dir}">
+            <packageset dir="${src.dir}" includes="**/*.java" />
+        </javadoc>
+
+        <echo message="Документація успішно створена у папці: ${output.dir}" />
+    </target>
+</project>
